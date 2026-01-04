@@ -2,22 +2,27 @@ package funcs;
 
 public class Ejercicio01_1 {
 
-	public static void main(String[] args) {
-		int tabla[] = {1, 2, 3, 5} ;
-		
-		int resultado = mostrarTabla(tabla);
-		
-		System.out.println("La suma de los valores del array: " + resultado);
+    public static void main(String[] args) {
+        int[] numeros = { 10, 1, 5 };
 
-	}
+        int sumaTotal = sumarTabla(numeros);
+        System.out.println("Suma total = " + sumaTotal);
+    }
 
-	public static int mostrarTabla(int[] tabla) {
+    /**
+     * Suma todos los valores de una tabla de enteros
+     * @param numeros tabla de entrada (no puede ser null)
+     * @return suma total de los elementos de la tabla
+     */
+    public static int sumarTabla(int[] numeros) {
+        if (numeros == null) {
+            throw new IllegalArgumentException("La tabla no puede ser null.");
+        }
 
-		int suma=0;
-		for (int i = 0; i < tabla.length; i++) {
-			suma += tabla[i];
-		}
-		return suma;
-	}
-
+        int sumaTotal = 0;
+        for (int indiceActual = 0; indiceActual < numeros.length; indiceActual++) {
+            sumaTotal += numeros[indiceActual];
+        }
+        return sumaTotal;
+    }
 }
